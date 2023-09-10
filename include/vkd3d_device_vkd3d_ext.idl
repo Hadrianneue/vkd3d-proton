@@ -54,3 +54,17 @@ interface ID3D12DXVKInteropDevice : IUnknown
     HRESULT LockCommandQueue(ID3D12CommandQueue *queue);
     HRESULT UnlockCommandQueue(ID3D12CommandQueue *queue);
 }
+
+[
+    uuid(851a9f0f-5da0-4850-b563-a7bbc414f4e6),
+    object,
+    local,
+    pointer_default(unique)
+]
+
+interface ID3DLfx2ExtDevice : IUnknown
+{
+    void MarkRenderStart(void *frame);
+    void MarkRenderEnd(void *frame);
+    void ImplicitBeginFrame(UINT64 *out_timestamp, void *out_frame);
+}
